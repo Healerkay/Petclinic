@@ -14,7 +14,7 @@ pipeline {
         
         stage("Git Checkout"){
             steps{
-                git 'https://github.com/Healerkay/Petclinic.git'
+                git branch: 'main', credentialsId: 'Pet', url: 'https://github.com/Healerkay/Petclinic.git'
             }
         }
         
@@ -24,11 +24,11 @@ pipeline {
             }
         }
         
-        //  stage("Test Cases"){
-        //     steps{
-        //         sh "mvn test"
-        //     }
-        // }
+         stage("Test Cases"){
+            steps{
+                sh "mvn test"
+            }
+        }
         
         stage("Sonarqube Analysis "){
             steps{
