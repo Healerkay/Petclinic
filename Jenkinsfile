@@ -75,12 +75,12 @@ pipeline {
         
         stage("Deploy To Tomcat"){
             steps{
-                sh "sudo cp /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps "
+                // sh "sudo cp /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps "
                 // sh "sudo mv //var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps/ROOT.war "
+                sh "DEPLOYING to Tomcat....."
             }
         }
     }
 }
 
 
-// vbhsvhvxhk
