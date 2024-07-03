@@ -24,22 +24,22 @@ pipeline {
             }
         }
         
-        //  stage("Test Cases"){
-        //     steps{
-        //         sh "mvn test"
-        //     }
-        // }
+         stage("Test Cases"){
+            steps{
+                sh "mvn test"
+            }
+        }
         
-        // stage("Sonarqube Analysis "){
-        //     steps{
-        //         withSonarQubeEnv('sonar-server') {
-        //             sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
-        //             -Dsonar.java.binaries=. \
-        //             -Dsonar.projectKey=Petclinic '''
+        stage("Sonarqube Analysis "){
+            steps{
+                withSonarQubeEnv('sonar-server') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
+                    -Dsonar.java.binaries=. \
+                    -Dsonar.projectKey=Petclinic '''
     
-        //         }
-        //     }
-        // }
+                }
+            }
+        }
         
         // stage("OWASP Dependency Check"){
         //     steps{
@@ -48,11 +48,11 @@ pipeline {
         //     }
         // }
         
-        //  stage("Build"){
-        //     steps{
-        //         sh " mvn clean install"
-        //     }
-        // }
+         stage("Build"){
+            steps{
+                sh " mvn clean install"
+            }
+        }
         
         // stage("Docker Build & Push"){
         //     steps{
@@ -73,13 +73,13 @@ pipeline {
         //     }
         // }
         
-        // stage("Deploy To Tomcat"){
-        //     steps{
-        //         // sh "sudo cp /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps "
-        //         // sh "sudo mv //var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps/ROOT.war "
-        //         sh "DEPLOYING to Tomcat....."
-        //     }
-        // }
+         stage("Deploying To Tomcat"){
+            steps{
+                // sh "sudo cp /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps "
+                // sh "sudo mv //var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps/ROOT.war "
+                 "DEPLOYING to Tomcat....."
+            }
+         }
     }
 }
 
