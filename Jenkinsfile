@@ -77,7 +77,7 @@ pipeline {
             steps{
                 // sh "sudo cp /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps "
                 // sh "sudo mv //var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps/ROOT.war "
-                 "DEPLOYING to Tomcat....."
+                 echo 'DEPLOYING to Tomcat.....'
             }
          }
     }
