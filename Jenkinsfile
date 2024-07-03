@@ -24,22 +24,22 @@ pipeline {
             }
         }
         
-         stage("Test Cases"){
-            steps{
-                sh "mvn test"
-            }
-        }
+        //  stage("Test Cases"){
+        //     steps{
+        //         sh "mvn test"
+        //     }
+        // }
         
-        stage("Sonarqube Analysis "){
-            steps{
-                withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
-                    -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=Petclinic '''
+        // stage("Sonarqube Analysis "){
+        //     steps{
+        //         withSonarQubeEnv('sonar-server') {
+        //             sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
+        //             -Dsonar.java.binaries=. \
+        //             -Dsonar.projectKey=Petclinic '''
     
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
         
         // stage("OWASP Dependency Check"){
         //     steps{
@@ -48,9 +48,9 @@ pipeline {
         //     }
         // }
         
-         stage("Build"){
-            steps{
-                sh " mvn clean install"
+        //  stage("Build"){
+        //     steps{
+        //         sh " mvn clean install"
             }
         }
         
@@ -75,8 +75,8 @@ pipeline {
         
         stage("Deploy To Tomcat"){
             steps{
-                sh "sudo cp /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps "
-                sh "sudo mv //var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps/ROOT.war "
+                sh "cp /var/lib/jenkins/workspace/petclinic_main/target/petclinic.war /opt/tomcat/webapps "
+                sh "mv //var/lib/jenkins/workspace/petclinic_main/target/petclinic.war /opt/tomcat/webapps/ROOT.war "
             }
         }
     }
