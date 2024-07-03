@@ -51,8 +51,8 @@ pipeline {
         //  stage("Build"){
         //     steps{
         //         sh " mvn clean install"
-            }
-        }
+        //     }
+        // }
         
         // stage("Docker Build & Push"){
         //     steps{
@@ -76,7 +76,7 @@ pipeline {
         stage("Deploy To Tomcat"){
             steps{
                 sh "cp /var/lib/jenkins/workspace/petclinic_main/target/petclinic.war /opt/tomcat/webapps "
-                sh "mv //var/lib/jenkins/workspace/petclinic_main/target/petclinic.war /opt/tomcat/webapps/ROOT.war "
+                sh "mv //var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps/ROOT.war "
             }
         }
     }
