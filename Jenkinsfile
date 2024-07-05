@@ -41,12 +41,12 @@ pipeline {
             }
         }
         
-        // stage("OWASP Dependency Check"){
-        //     steps{
-        //         dependencyCheck additionalArguments: '--scan ./ --format HTML ', odcInstallation: 'DP'
-        //         dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-        //     }
-        // }
+        stage("OWASP Dependency Check"){
+            steps{
+                dependencyCheck additionalArguments: '--scan ./ --format HTML ', odcInstallation: 'DP'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
         
          stage("Build"){
             steps{
@@ -54,30 +54,29 @@ pipeline {
             }
         }
         
-        // stage("Docker Build & Push"){
-        //     steps{
-        //         script{
-        //            withDockerRegistry(credentialsId: '58be877c-9294-410e-98ee-6a959d73b352', toolName: 'docker') {
+        stage("Docker Build & Push"){
+            steps{
+                script{
+                   withDockerRegistry(credentialsId: '58be877c-9294-410e-98ee-6a959d73b352', toolName: 'docker') {
                         
-        //                 sh "docker build -t image1 ."
-        //                 sh "docker tag image1 adijaiswal/pet-clinic123:latest "
-        //                 sh "docker push adijaiswal/pet-clinic123:latest "
-        //             }
-        //         }
-        //     }
-        // }
+                        sh "docker build -t image1 ."
+                        sh "docker tag image1 healerkay/pet-clinic123:latest "
+                        sh "docker push healerkay/pet-clinic123:latest "
+                    }
+                }
+            }
+        }
         
-        // stage("TRIVY"){
-        //     steps{
-        //         sh " trivy image adijaiswal/pet-clinic123:latest"
-        //     }
-        // }
+        stage("TRIVY"){
+            steps{
+                sh " trivy image healerkay/pet-clinic123:latest"
+            }
+        }
         
          stage("Deploying To Tomcat"){
             steps{
-                // sh "sudo cp /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps "
-                // sh "sudo mv //var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps/ROOT.war "
-                 echo 'DEPLOYING to Tomcat.....'
+                sh "sudo cp /var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps "
+                sh "sudo mv //var/lib/jenkins/.m2/repository/org/springframework/samples/spring-framework-petclinic/5.3.13/spring-framework-petclinic-5.3.13.war /opt/tomcat/webapps/ROOT.war "
             }
          }
     }
