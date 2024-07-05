@@ -24,6 +24,7 @@ This repository contains a Spring Boot application and the necessary instruction
 - [Building the Application](#building-the-application)
 - [Deploying to Tomcat](#deploying-to-tomcat)
 - [Continuous Integration and Deployment](#continuous-integration-and-deployment)
+- [Security and Quality Assurance](#security-and-quality-assurance)
 - [Contributing](#contributing)
 
 ## Prerequisites
@@ -35,6 +36,9 @@ Before you begin, ensure you have the following installed on your local machine:
 - [Apache Tomcat 9](https://tomcat.apache.org/download-90.cgi)
 - [Docker](https://www.docker.com/products/docker-desktop)
 - [Git](https://git-scm.com/downloads)
+- [SonarQube](https://www.sonarqube.org/downloads/)
+- [Trivy](https://github.com/aquasecurity/trivy)
+- [OWASP Dependency-Check](https://jeremylong.github.io/DependencyCheck/)
 
 ## Getting Started
 
@@ -80,6 +84,15 @@ To automate the build and deployment process, integrate with Jenkins:
 1. **Set up Jenkins:**
     - Install Jenkins and required plugins (e.g., Git, Maven, Docker).
 
+## Security and Quality Assurance
+
+1. **Code Quality Analysis with SonarQube:**
+
+2. **Dependency Vulnerability Check with OWASP Dependency-Check:**
+  
+
+3. **Container Vulnerability Scanning with Trivy:**
+
 2. **Create a Jenkins Pipeline:**
 
 2. **Implement a feedback loop:**
@@ -88,9 +101,4 @@ To automate the build and deployment process, integrate with Jenkins:
 ## Contributing
 
 Contributions are welcome!
-
-
-
-
-
 
