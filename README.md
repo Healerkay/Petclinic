@@ -1,9 +1,12 @@
+
  
 # Spring Boot Application Deployment to Tomcat  
 
 This repository contains a Spring Boot application and the necessary instructions to deploy it to an Apache Tomcat server. The deployment process follows a DevOps approach involving continuous integration, containerization with Docker, deployment to Tomcat, and a feedback loop to drive iterative improvements.  
 
 
+=======
+# Spring PetClinic Sample Application  
 
 [![Java CI with Maven](https://github.com/spring-petclinic/spring-framework-petclinic/actions/workflows/maven-build.yml/badge.svg)](https://github.com/spring-petclinic/spring-framework-petclinic/actions/workflows/maven-build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=spring-petclinic_spring-framework-petclinic&metric=alert_status)](https://sonarcloud.io/dashboard?id=spring-petclinic_spring-framework-petclinic)
